@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hi from comment</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{cf}}
+    <input type="submit" value="save">
+
+</form>
+
+{% for i in coms %}
+<p>comment id :  {{i.comment_id}} <br>
+   comment content :  {{i.content}} <br> 
+   comment updateDate : {{i.updated_Date}} <br> 
+   comment createdDate : {{i.createed_Date}}</p>
+<hr>
+{% endfor %}
+
+
+<li><a href="{% url 'ind' %}">Home</a></li>
+</body>
+</html>

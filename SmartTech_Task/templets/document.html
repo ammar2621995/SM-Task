@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    hi from document
+    <form method="POST">
+        {% csrf_token %}
+        {{df}}
+        <input type="submit" value="save">
+    
+    </form>
+    
+    {% for i in docs %}
+    <p>document id :  {{i.document_id}} <br>
+       document content :  {{i.content}} <br> 
+       document updateDate : {{i.updated_Date}} <br> 
+       document createdDate : {{i.createed_Date}}</p>
+    <hr>
+    {% endfor %}
+    <li><a href="{% url 'ind' %}">Home</a></li>
+</body>
+</html>

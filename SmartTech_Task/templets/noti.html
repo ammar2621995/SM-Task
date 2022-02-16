@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+hi from noti
+<form method="POST">
+    {% csrf_token %}
+    {{nf}}
+    <input type="submit" value="save">
+
+</form>
+
+{% for i in notis %}
+<p>
+   Notification id :  {{i.noti_id}} <br> 
+   Notification content :  {{i.content_msg}} <br> 
+   Notification protein ref : {{i.protein_ref}} <br> 
+   Notification comment ref : {{i.comment_ref}} <br> 
+   Notification document ref : {{i.document_ref}} <br> 
+   {% if i.noti_type == 'link' %}
+   Notification type : <i class="fa-solid fa-bell"></i> {{i.noti_type}} <br> 
+   {% else %}
+    Notification type : <i class="fa-solid fa-message"></i> {{i.noti_type}} <br> 
+   {% endif %}
+
+   Notification createdDate : {{i.created_Date}}</p>
+<hr>
+{% endfor %}
+<li><a href="{% url 'ind' %}">Home</a></li>
+</body>
+</html>
